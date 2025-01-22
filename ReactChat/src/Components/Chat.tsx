@@ -1,18 +1,12 @@
 import { useState } from "react";
-import App from "../App";
 
 function Chat({connection}){
     const [name, setName] = useState('');
     const [message, setMessage] = useState('');
 
     const sendMessage = async () => {
-        const messageProps = {
-            Name: name,
-            Message: message
-        };
-
         try {
-            await connection.send("SendMessage", messageProps);
+            await connection.invoke("SendMessage", {name, message});
             setMessage('');
         } catch (error) {
             console.log(error);

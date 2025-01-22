@@ -6,9 +6,9 @@ namespace ChatInRealTime.Service
 {
     public class HubSignal : Hub<IHubProvider>
     {
-        public async Task SendMessage(MessageModel messageModel)
+        public async Task SendMessage(MessageModel message)
         {
-            await Clients.All.ReceivedMessage(messageModel);
+            await Clients.All.ReceivedMessage(message);
         }
     }
 }
