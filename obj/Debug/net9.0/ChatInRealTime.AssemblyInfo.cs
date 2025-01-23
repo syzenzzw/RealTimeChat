@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ChatInRealTime")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7a610d679b28944b51064a2f1fa83dbb7701130a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3318a09066389cb5e69ca382cde518ec13e950db")]
 [assembly: System.Reflection.AssemblyProductAttribute("ChatInRealTime")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ChatInRealTime")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

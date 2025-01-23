@@ -1,0 +1,52 @@
+.lblName {
+    font-size: 20px;
+    font-family: sans-serif;
+    font-style: italic;
+    margin-left: 130px;
+}
+
+#name{
+    width: 150px;
+    height: 18px;
+    font-size: 15px;
+    border-radius: 5px;
+    border: none;
+    margin-left: 10px;
+}
+
+.lblMessage {
+    font-size: 20px;
+    font-family: sans-serif;
+    font-style: italic;
+    margin-left: 40px;
+}
+
+#message {
+    width: 200px;
+    height: 18px;
+    font-size: 15px;
+    border-radius: 5px;
+    border: none;
+}
+
+.chatDiv{
+    width: 500px;
+    height: 150px;
+    background-color: rgb(105, 157, 173);
+    align-items: center;
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.btnSend{
+    cursor: pointer;
+    width: 100px;
+    font-family: sans-serif;
+    font-style: italic;
+    border-radius: 10px;
+    border: none;
+    background-color: azure;
+    margin-left: 200px;
+    margin-top: 15px;
+}

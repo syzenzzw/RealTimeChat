@@ -1,6 +1,7 @@
 import { useState } from "react";
+import './Chat.css'
 
-function Chat({connection}){
+function Chat({ connection }){
     const [name, setName] = useState('');
     const [message, setMessage] = useState('');
 
@@ -13,9 +14,10 @@ function Chat({connection}){
         }
     }
 
+
     return(
-    <div>
-        <label htmlFor="name">Insira seu nome: </label>
+    <div className="chatDiv">
+        <label className="lblName" htmlFor="name">Insira seu nome: </label>
         <input
          type="text" 
          id="name" 
@@ -26,14 +28,14 @@ function Chat({connection}){
         <br />
         <br />
 
-        <label htmlFor="message">Insira sua mensagem aqui: </label>
+        <label className="lblMessage" htmlFor="message">Insira sua mensagem aqui: </label>
         <input 
         type="text" 
         id="message" 
         placeholder="Insira a mensagem aqui"
         onChange={(e) => setMessage(e.target.value)}
         />
-        <button onClick={sendMessage}>Enviar mensagem</button>
+        <button className="btnSend" onClick={sendMessage}>Enviar mensagem</button>
     </div>
     );
 }

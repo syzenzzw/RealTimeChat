@@ -18,7 +18,7 @@ app.UseCors(cors =>
 {
     cors.AllowAnyHeader()
         .AllowAnyMethod()
-        .AllowCredentials().WithOrigins("http://localhost:5173");  
+        .AllowCredentials().WithOrigins("http://localhost:5174");  
 });
 
 app.UseHttpsRedirection();

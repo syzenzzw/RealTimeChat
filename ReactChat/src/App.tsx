@@ -1,41 +1,47 @@
 import { useState, useEffect } from 'react'
-import { HubConnectionBuilder, LogLevel } from '@microsoft/signalr'
+import { HubConnection, HubConnectionBuilder, LogLevel } from '@microsoft/signalr'
 import Chat from './Components/Chat';
 
 function App() {
-    const [connection, setConnection] = useState(null);
+    const [connection, setConnection] = useState<HubConnection | null>(null);
     const [messages, setMessages] = useState([]);
-    const [isConnected, setIsConnected] = useState(false);
     
-    useEffect(() => {
-      const hub = async () => {
-        try {
-          const connection = new HubConnectionBuilder()
-            .withUrl("https://localhost:7198/hub")
-            .configureLogging(LogLevel.Information)
-            .build();
+      
+      
+      useEffect(() => {
+        function connectionSignal(){
 
-          connection.on("ReceivedMessage", (message) => {
-            console.log('Message received: ', message);
-
-            setMessages((messages) => [...messages, message]);
-          });
-
-          await connection.start();
-          setConnection(connection);  
-          setIsConnected(true);
-          console.log("Conexão concluída com sucesso", connection);
-        } catch (error) {
-          console.log(error);
+          if(connection) return;
+          try {
+  
+            const connection = new HubConnectionBuilder()
+              .withUrl("https://localhost:7198/hub")
+              .configureLogging(LogLevel.Information)
+              .build();
+     
+            connection.on("ReceivedMessage", (message) => {
+              console.log('Message received: ', message);
+              setMessages((messages) => [...messages, message]);
+            });
+     
+            connection.start();
+            
+            setConnection(connection); 
+     
+            console.log("Conexão concluída com sucesso", connection);
+     
+          } catch (error) {
+            console.log(error);
+          }
         }
-      };
-      hub();
-    }, []);
-    
+        connectionSignal();
+      }, [connection])
 
+  
+      
   return (
     <div>
-      <Chat connection={connection} isConnected={isConnected} /> 
+      <Chat connection={connection}/> 
       <div>
         <h2>Mensagem recebidas: </h2>
         <ul>
