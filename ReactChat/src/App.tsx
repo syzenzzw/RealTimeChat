@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect} from 'react'
 import { HubConnection, HubConnectionBuilder, LogLevel } from '@microsoft/signalr'
 import Chat from './Components/Chat';
 
@@ -9,9 +9,10 @@ function App() {
       
       
       useEffect(() => {
-        function connectionSignal(){
-
-          if(connection) return;
+        async function connectionSignal(){
+          if (connection) 
+            return
+          
           try {
   
             const connection = new HubConnectionBuilder()
@@ -20,11 +21,10 @@ function App() {
               .build();
      
             connection.on("ReceivedMessage", (message) => {
-              console.log('Message received: ', message);
               setMessages((messages) => [...messages, message]);
             });
-     
-            connection.start();
+
+            await connection.start();
             
             setConnection(connection); 
      
@@ -34,8 +34,8 @@ function App() {
             console.log(error);
           }
         }
-        connectionSignal();
-      }, [connection])
+        connectionSignal();      
+      }, [])
 
   
       
